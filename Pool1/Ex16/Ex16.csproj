@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{DDF884CB-969D-46A0-B709-839A7C980702}</ProjectGuid>
+    <ProjectGuid>{D966C61E-58B8-452C-94BA-CD6DABFA8E45}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Ex1</RootNamespace>
-    <AssemblyName>Ex1</AssemblyName>
+    <RootNamespace>Ex16</RootNamespace>
+    <AssemblyName>Ex16</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -50,6 +50,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Ex8\Ex8.csproj">
+      <Project>{f5c3837f-751e-4961-8bc8-4d783945883c}</Project>
+      <Name>Ex8</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ExtensionMethods\ExtensionMethods.csproj">
       <Project>{4f74534c-551c-40f2-baad-b90c82db6e04}</Project>
       <Name>ExtensionMethods</Name>

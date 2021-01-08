@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ExtensionMethods;
 
-namespace Pool1
+namespace Ex1
 {
     class Program
     {
@@ -16,7 +16,7 @@ namespace Pool1
             float x;
 
             #region Getting Input
-            
+
             Console.Write("a= ");
             do
             {
@@ -35,7 +35,19 @@ namespace Pool1
             #region Writing Output
 
             Console.WriteLine();
-            Console.WriteLine($"{a}*x + {b} = 0");
+
+            if (b > 0)
+            {
+                Console.WriteLine($"{a}*x + {b} = 0");
+            }
+            else if (b < 0)
+            {
+                Console.WriteLine($"{a}*x - {-b} = 0");
+            }
+            else
+            {
+                Console.WriteLine($"{a}*x = 0");
+            }
 
             Console.WriteLine($"=> x = {x}");
             #endregion
