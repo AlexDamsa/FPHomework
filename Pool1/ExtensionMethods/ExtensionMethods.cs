@@ -29,32 +29,11 @@ namespace ExtensionMethods
             return 0;
         }
 
-        public static void ReadOrStop(out string instance)
-        {
-            ConsoleKeyInfo key;
-            
-            string line = "";
+        #region Methods implemented for pool2
 
-            do
-            {
-                key = Console.ReadKey();
+        
 
-                switch (key.Key)
-                {
-                    case ConsoleKey.Enter:
-                        instance = line;
-                        Console.WriteLine();
-                        return;
-                        break;
-                    case ConsoleKey.Escape:
-                        instance = null;
-                        return;
-                        break;
-                    default:
-                        line += key.KeyChar;
-                        break;
-                }
-            } while (true);
-        }
+
+        #endregion
     }
 }
