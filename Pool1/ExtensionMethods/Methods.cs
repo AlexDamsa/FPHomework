@@ -47,6 +47,39 @@ namespace ExtensionMethods
             throw new Exception("Something went wrong while reading input");
             return false;
         }
+
+        public static void InsertInArray(ref int[] array, int value, int index)
+        {
+            Array.Resize(ref array, array.Length + 1);
+
+            for (int i = array.Length - 1; i >= 0; i--)
+            {
+                if (i > index)
+                {
+                    array[i] = array[i - 1];
+                }
+                else if (i == index)
+                {
+                    array[i] = value;
+                }
+                else
+                {
+                    break;
+                }
+            }
+        }
+
+        public static int[] RemoveFromArray(ref int[] array, int index)
+        {
+            for (int i = index + 1; i < array.Length; i++)
+            {
+                array[i - 1] = array[i];
+            }
+
+            Array.Resize(ref array, array.Length - 1);
+
+            return array;
+        }
     }
 
     public class Write
