@@ -202,5 +202,116 @@ namespace ExtensionMethods
             }
             return newArray.ToArray();
         }
+
+        public static void QuickSort(this int[] instance, int left, int right)
+        {
+            if (left < right)
+            {
+                int pivot = Partition(instance, left, right);
+
+                if (pivot > 1)
+                {
+                    QuickSort(instance, left, pivot - 1);
+                }
+                if (pivot + 1 < right)
+                {
+                    QuickSort(instance, pivot + 1, right);
+                }
+            }
+
+            int Partition(int[] arr, int leftP, int rightP)
+            {
+                int pivot = arr[leftP];
+                while (true)
+                {
+
+                    while (arr[leftP] < pivot)
+                    {
+                        leftP++;
+                    }
+
+                    while (arr[rightP] > pivot)
+                    {
+                        rightP--;
+                    }
+
+                    if (leftP < rightP)
+                    {
+                        if (arr[leftP] == arr[rightP]) return rightP;
+
+                        int temp = arr[leftP];
+                        arr[leftP] = arr[rightP];
+                        arr[rightP] = temp;
+
+
+                    }
+                    else
+                    {
+                        return rightP;
+                    }
+                }
+            }
+        }
+
+        public static void MergeSort(this int[] instance, int left, int right)
+        {
+            if (left < right)
+            {
+                int m = (left + right) / 2;
+
+                MergeSort(instance, left, m);
+                MergeSort(instance, m + 1, right);
+
+                Merge(instance, left, m, right);
+            }
+
+            void Merge(int[] array, int l, int m, int r)
+            {
+                int n1 = m - l + 1;
+                int n2 = r - m;
+
+                int[] L = new int[n1];
+                int[] R = new int[n2];
+                int i, j;
+
+                for (i = 0; i < n1; ++i)
+                    L[i] = array[l + i];
+                for (j = 0; j < n2; ++j)
+                    R[j] = array[m + 1 + j];
+
+                i = 0;
+                j = 0;
+
+                int k = l;
+                while (i < n1 && j < n2)
+                {
+                    if (L[i] <= R[j])
+                    {
+                        array[k] = L[i];
+                        i++;
+                    }
+                    else
+                    {
+                        array[k] = R[j];
+                        j++;
+                    }
+                    k++;
+                }
+
+                while (i < n1)
+                {
+                    array[k] = L[i];
+                    i++;
+                    k++;
+                }
+
+                while (j < n2)
+                {
+                    array[k] = R[j];
+                    j++;
+                    k++;
+                }
+            }
+        }
     }
 }

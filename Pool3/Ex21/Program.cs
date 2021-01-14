@@ -7,7 +7,7 @@ using ExtensionMethods;
 
 namespace Ex21
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
@@ -21,19 +21,7 @@ namespace Ex21
             int[] secondArray = new int[n];
             secondArray.FillArray();
 
-            int careIPrimu = 0;
-
-            for (int i = 0; i < Math.Min(array.Length, secondArray.Length); i++)
-            {
-                if (array[i] < secondArray[i])
-                {
-                    careIPrimu = 1;
-                }
-                else if (array[i] > secondArray[i])
-                {
-                    careIPrimu = 2;
-                }
-            }
+            int careIPrimu = CareIPrimu(array, secondArray);
 
             if (careIPrimu == 1)
             {
@@ -47,21 +35,35 @@ namespace Ex21
             }
             else
             {
-                if (array.Length < secondArray.Length)
+                Console.WriteLine("sirurile sunt identice");
+            }
+        }
+
+        public static int CareIPrimu(int[] array, int[] secondArray)
+        {
+
+            for (int i = 0; i < Math.Min(array.Length, secondArray.Length); i++)
+            {
+                if (array[i] < secondArray[i])
                 {
-                    array.Write();
-                    secondArray.Write();
+                    return 1;
                 }
-                else if (secondArray.Length < array.Length)
+                else if (array[i] > secondArray[i])
                 {
-                    secondArray.Write();
-                    array.Write();
-                }
-                else
-                {
-                    Console.WriteLine("sirurile sunt identice");
+                    return 2;
                 }
             }
+
+            if (array.Length > secondArray.Length)
+            {
+                return 2;
+            }
+            else if (array.Length < secondArray.Length)
+            {
+                return 1;
+            }
+
+            return 0;
         }
     }
 }

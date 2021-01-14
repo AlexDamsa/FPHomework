@@ -7,7 +7,7 @@ using ExtensionMethods;
 
 namespace Ex22
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
@@ -33,7 +33,7 @@ namespace Ex22
             V1MinusV2(secondArray, array).Write();
         }
 
-        static int[] Reuniune(int[] a, int[] b)
+        public static int[] Reuniune(int[] a, int[] b)
         {
             List<int> reunion = new List<int>();
             
@@ -52,7 +52,7 @@ namespace Ex22
             return reunion.ToArray();
         }
 
-        static int[] Intersectie(int[] a , int[] b)
+        public static int[] Intersectie(int[] a , int[] b)
         {
             List<int> intersection = new List<int>();
 
@@ -74,7 +74,7 @@ namespace Ex22
             return intersection.ToArray();
         }
 
-        static int[] V1MinusV2(int[] a, int[] b)
+        public static int[] V1MinusV2(int[] a, int[] b)
         {
             List<int> aList = a.ToList<int>();
             List<int> bList = b.ToList<int>();
